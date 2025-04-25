@@ -184,8 +184,8 @@ void lab3()
     char c;
     int word_length = 0; 
     while ((c = getchar()) != '\n' && c != EOF); // && - логический оператор и
-    printf("Введите текст, в конце +):\n");
-    while ((c = getchar()) != '+') {
+    printf("Введите текст, в конце j:\n");
+    while ((c = getchar()) != 'j') {
         if (shish(c)) { 
             word_length++;
         } else if (word_length > 0) { 
@@ -200,7 +200,11 @@ void lab3()
     printf("Количество слов, содержащих больше %d букв: %d\n", N, count);
   
 }
-
+void lab3d()
+{
+    printf(" Тема лабы");
+    printf(" Задание");
+}
 void lab4()
 {
     printf("Тема лабы: В символьной строке удалить все слова, состоящие более чем из N букв.\n");
@@ -218,7 +222,7 @@ void mamut_rahal(char buffer[], int N);
     fgets(line, MAXLINE, stdin);
     mamut_rahal(line, N);
     puts(line);
-    return 0;
+   
 }
 
 
@@ -251,7 +255,7 @@ int L;
     }
     printf("\n");
     
-    return 0;
+   
 }
 void lab5d()
 {
