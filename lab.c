@@ -52,7 +52,7 @@ void mamut_rahal(char buffer[], int N)
             if(flag == NO) {
                 start = i;     // Начало нового слова
                 cnt = 0;       // Сброс счетчика длины
-                flag = YES;
+  flag = YES;
             }
             cnt++;             // Считаем длину слова
         }
@@ -87,6 +87,15 @@ void zero_row(int K, int row[K]) {
         row[i] = 0;
     }
 }
+// Функция для проверки, является ли строка зеркальной
+int is_mirror_row(int K, int row[K]) {
+    for (int i = 0; i < K / 2; i++) {
+        if (row[i] != row[K - 1 - i]) {
+            return 0; // Не зеркальная
+        }
+    }
+    return 1; // Зеркальная
+}
 
 void lab1()
 
@@ -106,15 +115,12 @@ float func() {
     float delta_v = (L / t1) - (L / t2);
    return delta_v/2;
 }
-
-
  printf("Катер проходит расстояние L по течению реки за время t1 минут, а против течения - за время t2 минут. Определить скорость течения реки.\n");
    
     printf("Гершкович М.А 1438, Задача 1.4 Определение скорости течения реки.\n");
     
     float delta_v = func();
     printf("Скорость течения реки:%f", delta_v);
-
 }
 void lab1d()
 {
@@ -122,7 +128,6 @@ void lab1d()
     printf(" Задание: засунуть все вычисления в функцию\n");
     float delta_v = func();
     printf("Скорость течения реки:%f.\n", delta_v);
-
 }
 void lab2()
 {
@@ -130,10 +135,8 @@ void lab2()
 {
 float s,a,b,c;
 int i, N, sign;
-
 printf("N=");
 scanf("%d",&N);
-
 s=0;
 sign=1;
 i=0;
@@ -150,7 +153,6 @@ b=b+3;
 a=c/b;
 i=i+1;
 }
-
 printf("n=%d, s=%f", i,s);
 printf("\n");
 }
@@ -194,8 +196,8 @@ void lab3()
     char c;
     int word_length = 0; 
     while ((c = getchar()) != '\n' && c != EOF); // && - логический оператор и
-    printf("Введите текст, в конце j:\n");
-    while ((c = getchar()) != 'j') {
+    printf("Введите текст, в конце +:\n");
+    while ((c = getchar()) != '+') {
         if (shish(c)) { 
             word_length++;
         } else if (word_length > 0) { 
@@ -208,7 +210,6 @@ void lab3()
         count++;
     }
     printf("Количество слов, содержащих больше %d букв: %d\n", N, count);
-  
 }
 void lab3d()
 {
@@ -219,8 +220,6 @@ void lab4()
 {
     printf("Тема лабы: В символьной строке удалить все слова, состоящие более чем из N букв.\n");
 
-
-void mamut_rahal(char buffer[], int N);
 {
     int N;
     char line[MAXLINE];
@@ -231,11 +230,8 @@ void mamut_rahal(char buffer[], int N);
 
     fgets(line, MAXLINE, stdin); // Ввод построчно.
     mamut_rahal(line, N);
-    puts(line); // Вывод строки на экран.
-   
+   puts(line); // Вывод строки на экран.
 }
-
-
 }
 void lab4d()
 {
@@ -255,7 +251,6 @@ int L;
     for (int i = 0; i < L; i++) {
         scanf("%d", &array[i]);
     }
-    
     // Переворачиваем массив
     gopstop(array, L);
     
@@ -264,23 +259,9 @@ int L;
         printf("%d ", array[i]);
     }
     printf("\n");
-    
-   
 }
 void lab5d()
 {
-    
-
-// Функция для обнуления строки
-void zero_row(int K, int row[K]) {
-    for (int i = 0; i < K; i++) {
-        row[i] = 0;
-    }
-}
-// Функция для переворачивания массива
-
-
-
     int L;
     printf("Введите длину массива: ");
     scanf("%d", &L);
@@ -290,8 +271,6 @@ void zero_row(int K, int row[K]) {
     for (int i = 0; i < L; i++) {
         scanf("%d", &array[i]);
     }
-    
-
    // Сортируем массив
     bubble_sort(array, L);
     printf("Отсортированный массив:\n");
@@ -299,7 +278,6 @@ void zero_row(int K, int row[K]) {
         printf("%d ", array[i]);
     }
     printf("\n");
-    
     // Переворачиваем массив
     gopstop(array, L);
     printf("Массив в зеркальном порядке:\n");
@@ -307,22 +285,20 @@ void zero_row(int K, int row[K]) {
         printf("%d ", array[i]);
     }
     printf("\n");
-    
 }
 void lab6()
 {
     printf("В двумерном целочисленном массиве размера N на K обнулить строки, являющиеся зеркальным отражением самих себя.\n");
 
     int N, K;
-
     // Ввод размеров массива
     printf("Введите количество строк N: ");
     scanf("%d", &N);
     printf("Введите количество столбцов K: ");
     scanf("%d", &K);
-
+    
     int array[N][K];
-
+    
     // Ввод элементов массива
     printf("Введите элементы массива построчно:\n");
     for (int i = 0; i < N; i++) {
@@ -339,15 +315,6 @@ void lab6()
         }
         printf("\n");
     }
-// Функция для проверки, является ли строка зеркальной
-int is_mirror_row(int K, int row[K]) {
-    for (int i = 0; i < K / 2; i++) {
-        if (row[i] != row[K - 1 - i]) {
-            return 0; // Не зеркальная
-        }
-    }
-    return 1; // Зеркальная
-}
      // Проверяем и обнуляем зеркальные строки
     for (int i = 0; i < N; i++) {
         if (is_mirror_row(K, array[i])) {
@@ -362,7 +329,6 @@ int is_mirror_row(int K, int row[K]) {
         }
         printf("\n");
     }
-   
 }
 void lab6d()
 {
