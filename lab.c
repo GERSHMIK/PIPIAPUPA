@@ -17,7 +17,7 @@ float func() {
     float delta_v = (L / t1) - (L / t2);
     return delta_v / 2;
 }
-
+ 
 int shish(char c) {
     return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'); // || - логический оператор или. shish - функция, которая проверяет, является ли символ буквой, сравнивая его с диапазонами символов для заглавных и строчных букв.
 }
@@ -68,15 +68,25 @@ void gopstop(int arr[], int length) {
     }
 }
 
+// Функция для сортировки массива методом пузырька
+void bubble_sort(int arr[], int length) {
+    for (int i = 0; i < length - 1; i++) {
+        for (int j = 0; j < length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Меняем элементы местами
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
 // Функция для обнуления строки
 void zero_row(int K, int row[K]) {
     for (int i = 0; i < K; i++) {
         row[i] = 0;
     }
 }
-
-
-
 
 void lab1()
 
@@ -259,20 +269,14 @@ int L;
 }
 void lab5d()
 {
-    // Функция для сортировки массива методом пузырька
-void bubble_sort(int arr[], int length) {
-    for (int i = 0; i < length - 1; i++) {
-        for (int j = 0; j < length - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Меняем элементы местами
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+    
+
+// Функция для обнуления строки
+void zero_row(int K, int row[K]) {
+    for (int i = 0; i < K; i++) {
+        row[i] = 0;
     }
 }
-
 // Функция для переворачивания массива
 
 
@@ -287,7 +291,8 @@ void bubble_sort(int arr[], int length) {
         scanf("%d", &array[i]);
     }
     
-    // Сортируем массив
+
+   // Сортируем массив
     bubble_sort(array, L);
     printf("Отсортированный массив:\n");
     for (int i = 0; i < L; i++) {
@@ -334,7 +339,7 @@ void lab6()
         }
         printf("\n");
     }
-// Функция для проверки, является ли строка зеркальной (палиндромом)
+// Функция для проверки, является ли строка зеркальной
 int is_mirror_row(int K, int row[K]) {
     for (int i = 0; i < K / 2; i++) {
         if (row[i] != row[K - 1 - i]) {
