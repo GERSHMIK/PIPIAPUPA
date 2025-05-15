@@ -229,9 +229,9 @@ void mamut_rahal(char buffer[], int N);
     scanf("%d", &N);
     while(getchar() != '\n'); // Очистка буфера ввода
 
-    fgets(line, MAXLINE, stdin);
+    fgets(line, MAXLINE, stdin); // Ввод построчно.
     mamut_rahal(line, N);
-    puts(line);
+    puts(line); // Вывод строки на экран.
    
 }
 
